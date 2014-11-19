@@ -11,10 +11,12 @@
     "protractor": "^1.4.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "bower install",
 
     "prestart": "npm install",
-    "start": "http-server -a localhost -p 8008 -c-1"
+    "start": "http-server -a localhost -p 8008 -c-1",
+
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "ssilk",
   "license": "MIT",
