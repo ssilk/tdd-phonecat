@@ -5,8 +5,13 @@
     <title>TDD PhoneCat</title>
     <script src="bower_components/angular/angular.js"></script>
     <script src="app.js"></script>
+    <script src="phone-list/phone-list-controller.js"></script>
   </head>
   <body>
-    Hi
+    <div ng-controller="tddPhoneListController">
+      <li ng-repeat="phone in phones">
+        <div>{{phone.name}}</div>
+      </li>
+    </div>
   </body>
 </html>
