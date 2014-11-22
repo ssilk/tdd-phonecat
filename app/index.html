@@ -9,9 +9,11 @@
   </head>
   <body>
     <div ng-controller="tddPhoneListController">
-      <li ng-repeat="phone in phones">
-        <div>{{phone.name}}</div>
-      </li>
+      <ul>
+        <li ng-repeat="phone in phones">
+          <span>{{phone.name}}</span>
+        </li>
+      </ul>
     </div>
   </body>
 </html>
