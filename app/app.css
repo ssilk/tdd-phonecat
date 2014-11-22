@@ -1,0 +1,11 @@
+body {
+  padding-top: 25px;
+}
+
+.phones {
+  list-style: none;
+}
+
+.phones li {
+  height: 25px;
+}
