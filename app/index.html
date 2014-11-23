@@ -21,8 +21,12 @@
         <div class="col-md-10">
           <ul class="phones">
             <li ng-repeat="phone in phones | filter:searchText | orderBy:sortKey">
-              <img class="thumb" ng-src="{{phone.imageUrl}}">
-              <span>{{phone.name}}</span>
+              <a class="thumb" ng-href="#/phones/{{phone.id}}">
+                <img class="thumb" ng-src="{{phone.imageUrl}}">
+              </a>
+              <a ng-href="#/phones/{{phone.id}}">
+                {{phone.name}}
+              </a>
               <p>{{phone.snippet}}</p>
             </li>
           </ul>

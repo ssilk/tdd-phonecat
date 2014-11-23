@@ -2,9 +2,9 @@
 
 describe('Home page', function () {
   var mockPhones = [
-    {name: "phone B", snippet: "about B",
+    {name: "phone B", snippet: "about B", id: "detail-B",
         imageUrl: "phoneB-png", age: 1},
-    {name: "phone A", snippet: "about A",
+    {name: "phone A", snippet: "about A", id: "detail-A",
         imageUrl: "phoneA-png", age: 2}
   ]
 
@@ -76,5 +76,14 @@ describe('Home page', function () {
     expect(phones.count()).toBe(1);
     expect(phones.getText()).toMatch('phone B');
     expect(phones.getText()).not.toMatch('phone A');
+  });
+
+  it('user can click on a phone to visit the detail page', function () {
+    var imageHref = element(by.repeater('phone in phones').row(0)).
+        $('a.thumb').getAttribute('href');
+    var nameHref = element(by.repeater('phone in phones').row(0)).
+        element(by.binding('phone.name')).getAttribute('href');
+    expect(imageHref).toMatch('#/phones/detail-B');
+    expect(nameHref).toMatch('#/phones/detail-B');
   });
 });
