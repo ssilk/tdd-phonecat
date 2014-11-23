@@ -17,8 +17,9 @@ describe('Home page', function () {
                 respond(mockPhones);
           }]);
     };
-
     browser.addMockModule('tddSpecHelper', mockApi, mockPhones);
+
+    browser.get('app/index.html');
   });
 
   afterEach(function () {
@@ -26,12 +27,28 @@ describe('Home page', function () {
   });
 
   mockPhones.forEach(function (mockPhone, index) {
-    it('user sees properties of the phone at index ' + index, function () {
-      browser.get('app/index.html');
-      var phone = element(by.repeater('phone in phones').row(index));
-      expect(phone.$('img').getAttribute('src')).toMatch(mockPhone.imageUrl);
-      expect(phone.$('span').getText()).toEqual(mockPhone.name);
-      expect(phone.$('p').getText()).toEqual(mockPhone.snippet);
-    });
+    it('user sees the phone at index ' + index + ' in the list',
+        function () {
+          var phone = element(by.repeater('phone in phones').row(index));
+          expect(phone.$('img').getAttribute('src')).toMatch(mockPhone.imageUrl);
+          expect(phone.$('span').getText()).toEqual(mockPhone.name);
+          expect(phone.$('p').getText()).toEqual(mockPhone.snippet);
+        });
+  });
+
+  it('user can filter the list of phones by name', function () {
+    $('input').clear().sendKeys('phone A');
+    var phones = element.all(by.repeater('phone in phones'));
+    expect(phones.count()).toBe(1);
+    expect(phones.getText()).toMatch('phone A');
+    expect(phones.getText()).not.toMatch('phone B');
+  });
+
+  it('user can filter the list of phones by snippet', function () {
+    $('input').clear().sendKeys('about B');
+    var phones = element.all(by.repeater('phone in phones'));
+    expect(phones.count()).toBe(1);
+    expect(phones.getText()).toMatch('phone B');
+    expect(phones.getText()).not.toMatch('phone A');
   });
 });

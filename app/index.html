@@ -10,13 +10,18 @@
   <body ng-controller="tddPhoneListController">
     <div class="container-fluid">
       <div class="row">
-        <ul class="phones">
-          <li ng-repeat="phone in phones">
-            <img class="thumb" ng-src="{{phone.imageUrl}}">
-            <span>{{phone.name}}</span>
-            <p>{{phone.snippet}}</p>
-          </li>
-        </ul>
+        <div class="col-md-2">
+          Search: <input ng-model="searchText">
+        </div>
+        <div class="col-md-10">
+          <ul class="phones">
+            <li ng-repeat="phone in phones | filter:searchText">
+              <img class="thumb" ng-src="{{phone.imageUrl}}">
+              <span>{{phone.name}}</span>
+              <p>{{phone.snippet}}</p>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
     <script src="bower_components/angular/angular.js"></script>
