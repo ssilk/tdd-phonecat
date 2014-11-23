@@ -15,11 +15,12 @@ describe('Home page', function () {
           run(['$httpBackend', function ($httpBackend) {
             $httpBackend.whenGET('components/data/phones.json').
                 respond(mockPhones);
+            $httpBackend.whenGET(/.*html/).passThrough();
           }]);
     };
     browser.addMockModule('tddSpecHelper', mockApi, mockPhones);
 
-    browser.get('app/index.html');
+    browser.get('app/index.html#/phones');
   });
 
   afterEach(function () {
