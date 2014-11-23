@@ -12,10 +12,15 @@
       <div class="row">
         <div class="col-md-2">
           Search: <input ng-model="searchText">
+          Sort by:
+          <select ng-model="sortKey">
+            <option value="name">Alphabetical</option>
+            <option value="age">Newest</option>
+          </select>
         </div>
         <div class="col-md-10">
           <ul class="phones">
-            <li ng-repeat="phone in phones | filter:searchText">
+            <li ng-repeat="phone in phones | filter:searchText | orderBy:sortKey">
               <img class="thumb" ng-src="{{phone.imageUrl}}">
               <span>{{phone.name}}</span>
               <p>{{phone.snippet}}</p>

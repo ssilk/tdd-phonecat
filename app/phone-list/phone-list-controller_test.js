@@ -19,4 +19,12 @@ describe('tddPhoneListController', function () {
         $httpBackend.verifyNoOutstandingExpectation();
       })
   );
+
+  it('sets the default value of the orderBy model to "age"', inject(
+      function ($rootScope, $controller) {
+        scope = $rootScope.$new();
+        $controller('tddPhoneListController', {$scope: scope});
+        expect(scope.sortKey).toEqual('age');
+      })
+  );
 });

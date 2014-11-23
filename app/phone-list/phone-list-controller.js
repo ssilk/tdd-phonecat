@@ -7,4 +7,5 @@ angular.module('tddPhoneList', []).
               success(function (data) {
                 $scope.phones = data;
               });
+          $scope.sortKey = 'age';
         }]);
