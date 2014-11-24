@@ -1,5 +1,5 @@
 body {
-  padding-top: 25px;
+  padding-top: 20px;
 }
 
 .phones {
@@ -8,12 +8,13 @@ body {
 
 .phones li {
   clear: left;
-  height: 125px;
+  height: 115px;
+  padding-top: 15px;
 }
 
 .thumb {
   float: left;
   height: 100px;
   width: 100px;
-  margin: 0em 1em 1em 0em;
+  margin: -0.5em 1em 1em 0em;
 }
