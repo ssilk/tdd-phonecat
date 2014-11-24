@@ -88,3 +88,31 @@ describe('Home page', function () {
     expect(nameHref).toMatch('#/phones/detail-B');
   });
 });
+
+describe('Details page', function () {
+  var mockPhone = {name: 'the phone'};
+
+  beforeEach(function () {
+    var mockApi = function () {
+      var mockPhone = arguments[0];
+      angular.module('tddSpecHelper', ['ngMockE2E']).
+          run(['$httpBackend', function ($httpBackend) {
+            $httpBackend.whenGET('components/data/phones/the-phone.json').
+                respond(mockPhone);
+            $httpBackend.whenGET(/.*html/).passThrough();
+          }]);
+    };
+    browser.addMockModule('tddSpecHelper', mockApi, mockPhone);
+
+    browser.get('app/index.html#/phones/the-phone');
+  });
+
+  afterEach(function () {
+    browser.removeMockModule('tddSpecHelper');
+  });
+
+  it('user sees phone details', function () {
+    var phoneName = $('h2').getText();
+    expect(phoneName).toEqual('the phone');
+  });
+});

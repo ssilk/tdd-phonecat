@@ -7,15 +7,15 @@ describe('tddPhoneListController', function () {
 
   it('creates the phones model using data fetched via XHR', inject(
       function ($httpBackend, $rootScope, $controller) {
-        var phoneData = [{name: "phone 1"}, {name: "phone 2"}];
+        var phonesData = [{name: "phone 1"}, {name: "phone 2"}];
         $httpBackend.expectGET('components/data/phones.json').
-            respond(phoneData);
+            respond(phonesData);
 
         scope = $rootScope.$new();
         $controller('tddPhoneListController', {$scope: scope});
 
         $httpBackend.flush();
-        expect(scope.phones).toEqual(phoneData);
+        expect(scope.phones).toEqual(phonesData);
         $httpBackend.verifyNoOutstandingExpectation();
       })
   );
