@@ -112,7 +112,7 @@ describe('Details page', function () {
   });
 
   it('user sees phone details', function () {
-    var phoneName = $('h2').getText();
+    var phoneName = $('h1').getText();
     expect(phoneName).toEqual('the phone');
   });
 });

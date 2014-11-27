@@ -2,6 +2,8 @@ body {
   padding-top: 20px;
 }
 
+/** List View **/
+
 .phones {
   list-style: none;
 }
@@ -17,4 +19,25 @@ body {
   height: 100px;
   width: 100px;
   margin: -0.5em 1em 1em 0em;
+}
+
+/** Detail View **/
+
+h1 {
+  border-bottom: 1px solid gray;
+}
+
+ul.specs {
+  list-style: none;
+}
+
+ul.specs > li {
+  display: inline-block;
+  vertical-align: top;
+  width: 200px;
+}
+
+ul.specs > li > span {
+  font-size: 1.2em;
+  font-weight: bold;
 }
