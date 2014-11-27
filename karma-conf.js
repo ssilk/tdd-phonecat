@@ -8,6 +8,7 @@ module.exports = function (config) {
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/phone-list/**/*.js',
       'app/phone-detail/**/*.js',
+      'app/components/**/*.js',
       'app/app.js'
     ],
 

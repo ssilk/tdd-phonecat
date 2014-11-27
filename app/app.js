@@ -3,6 +3,7 @@
 var app = angular.module('tddPhoneCatApp', [
   'tddPhoneList',
   'tddPhoneDetail',
+  'tddPhoneCatFilters',
   'ngRoute'
 ]);
 
