@@ -15,5 +15,6 @@ app.config(['$routeProvider', function ($routeProvider) {
       when('/phones/:phoneId', {
         controller: 'tddPhoneDetailController',
         templateUrl: 'phone-detail/phone-detail.html'
-      });
+      }).
+      otherwise('/phones');
 }]);
