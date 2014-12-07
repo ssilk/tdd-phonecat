@@ -90,7 +90,13 @@ describe('Home page', function () {
 });
 
 describe('Details page', function () {
-  var mockPhone = {name: 'the phone'};
+  var mockPhone = {
+    name: 'the phone',
+    images: [
+      'the-phone-0.png',
+      'the-phone-1.png'
+    ]
+  };
 
   beforeEach(function () {
     var mockApi = function () {
@@ -114,5 +120,10 @@ describe('Details page', function () {
   it('user sees phone details', function () {
     var phoneName = $('h1').getText();
     expect(phoneName).toEqual('the phone');
+  });
+
+  it('user sees primary phone image', function () {
+    var phoneImage = $('img').getAttribute('src');
+    expect(phoneImage).toMatch('the-phone-0.png');
   });
 });
